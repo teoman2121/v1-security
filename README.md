@@ -1,8 +1,3 @@
-# Create project folder
-mkdir v1-security && cd v1-security
-
-# 1. Create professional README.md
-cat << 'EOF' > README.md
 # 🛰️ V1-SECURITY TERMINAL v3.0
 
 ![Python](https://img.shields.io/badge/Python-3.x-green?style=for-the-badge&logo=python)
