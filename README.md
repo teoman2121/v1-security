@@ -10,7 +10,8 @@ V1-Security is an interactive, rootless cybersecurity and network analysis tool 
 * **Geo-IP Locator:** Accurate IP-based location tracking with Google Maps integration.
 * **Port Scanner:** Identifies open ports (🔓) on target devices instantly.
 * **UDP Stress Test:** Built-in DDoS module for network resilience testing.
-* **Secure Access:** Base64 encrypted login layer for privacy.
+* **Secure Access:** Base64 encrypted login layer for privacy.*
+* THE KEY IS: v1-secret-2026*
 
 ## 🛠️ Installation
 
