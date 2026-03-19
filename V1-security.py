@@ -1,4 +1,3 @@
-cat << 'EOF' > v1_final.py
 import nmap, sys, socket, requests, time, os, base64
 from datetime import datetime
 from rich.console import Console
@@ -7,7 +6,7 @@ from rich.panel import Panel
 from rich.progress import Progress, SpinnerColumn, TextColumn
 from rich.prompt import Prompt
 
-# Password: v1-secret-2026
+# Şifre: v1-secret-2026
 AUTH_KEY = "djEtc2VjcmV0LTIwMjY=" 
 console = Console()
 
@@ -16,7 +15,7 @@ LANG = {
         "welcome": "V1-SECURITY SİSTEMİNE HOŞ GELDİNİZ",
         "auth_req": "ERİŞİM KISITLANDI: Lütfen anahtarınızı giriniz.",
         "key_prompt": "ERİŞİM ANAHTARI",
-        "granted": "[bold green][✓] Erişim Onaylandı.[/bold green]",
+        "granted": "[bold green][✓] Erişim Onaylandı. Sistem Yükleniyor...[/bold green]",
         "failed": "[bold red][X] Hatalı Şifre! Sistem Kilitlendi.[/bold red]",
         "banner_sub": "Sistem Aktif | Komutlar için 'help' yazın",
     },
@@ -24,7 +23,7 @@ LANG = {
         "welcome": "WELCOME TO V1-SECURITY SYSTEM",
         "auth_req": "ACCESS RESTRICTED: Please enter your key.",
         "key_prompt": "ACCESS KEY",
-        "granted": "[bold green][✓] Access Granted.[/bold green]",
+        "granted": "[bold green][✓] Access Granted. Loading System...[/bold green]",
         "failed": "[bold red][X] Authentication Failed! System Locked.[/bold red]",
         "banner_sub": "System Online | Type 'help' for commands",
     }
@@ -41,6 +40,7 @@ def select_language():
 
 def print_banner():
     lang = LANG[current_lang]
+    # r""" kullanarak ASCII karakterlerinin bozulmasını engelliyoruz
     banner = r"""[bold green]
 ▄▄▄█████▓▓█████  ▒█████    ██████      
 ▓  ██▒ ▓▒▓█   ▀ ▒██▒  ██▒▒██    ▒      
@@ -87,7 +87,15 @@ def main():
         time.sleep(1)
         os.system('clear')
         print_banner()
-        # Komut sistemi buraya devam eder
+        # Sistem hazır, komut döngüsü başlayabilir
+        while True:
+            cmd = Prompt.ask(f"\n[bold green]V1-SEC ({current_lang})[/bold green]").strip()
+            if cmd == "exit": break
+            elif cmd == "help":
+                console.print("[yellow]Scan, Loc, Port, DDOS, Clear, Exit[/yellow]")
+            elif cmd == "clear":
+                os.system('clear')
+                print_banner()
     else:
         console.print(lang['failed'])
         sys.exit()
@@ -97,4 +105,3 @@ if __name__ == "__main__":
         main()
     except KeyboardInterrupt:
         console.print("\n[red]Exit / Çıkış[/red]")
-EOF
